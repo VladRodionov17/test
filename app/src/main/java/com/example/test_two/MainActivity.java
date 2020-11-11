@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-//    подключаем нужные нам блоки
+    //    подключаем нужные нам блоки
     public EditText numberInput;
     public EditText passwordInput;
 
@@ -23,19 +23,28 @@ public class MainActivity extends AppCompatActivity {
         passwordInput = (EditText) findViewById(R.id.password);
 
     }
-//    задаем конкретные действия кнопкам и полям
+
+    //    задаем конкретные действия кнопкам и полям
     public void onClick(View view) {
-
-        if (numberInput.getText().toString().equals("") && passwordInput.getText().toString().equals(""))
-            Toast.makeText(getApplicationContext(), "Какая-то из не заполнена!", Toast.LENGTH_SHORT).show();
-
-    }
+// что будет если не будет написан номер телефона
+       if (numberInput.getText().toString().equals("")) {
+            Toast.makeText(getApplicationContext(), "Номер телефона не зеполнен!", Toast.LENGTH_SHORT).show();
+        }
+// что будет если не будет написан пароль
+        if (passwordInput.getText().toString().equals("")) {
+            Toast.makeText(getApplicationContext(), "Пароль не зеполнен!", Toast.LENGTH_SHORT).show();
+//    что будет, если не будут написаны номер и пароль
+        }
+        if (passwordInput.getText().toString().equals("") && numberInput.getText().toString().equals("")) {
+            Toast.makeText(getApplicationContext(), "Номер телефона и пароль не заполнены!", Toast.LENGTH_SHORT).show();
 //    делаем переход на другую стр. при нажатии на кнопку, которая будет задана
-    {
-        Intent intent = new Intent(MainActivity.this, vhod.class);
-        startActivity(intent);
+        }
+        else {
+            Intent intent = new Intent(MainActivity.this, vhod.class);
+            startActivity(intent);
+        }
     }
-    public void OnClick(View view){
+    public void OnClick (View view){
         Intent intent = new Intent(MainActivity.this, reg.class);
         startActivity(intent);
     }

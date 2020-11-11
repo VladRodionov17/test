@@ -30,9 +30,9 @@ public class reg extends AppCompatActivity {
 
         if (emailInput.getText().toString().equals("") && nameInput.getText().toString().equals("") &&
                 numberInput.getText().toString().equals("") && passwordInput.getText().toString().equals(""))
-            Toast.makeText(getApplicationContext(), "Какая-то их строк не заполнена", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Какая-то из строк не заполнена", Toast.LENGTH_SHORT).show();
 
-        {
+        else{
             Intent intent = new Intent(reg.this, vhod.class);
             startActivity(intent);
         }
